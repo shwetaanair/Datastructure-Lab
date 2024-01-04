@@ -3,8 +3,8 @@
 
 #define MAX 100
 
-int n;    /*Number of vertices in the graph*/
-int adj[MAX][MAX]; /*Adjacency Matrix*/
+int n;    
+int adj[MAX][MAX];
 void create_graph();
 
 int queue[MAX], front = -1,rear = -1;
@@ -20,7 +20,7 @@ int main()
 
         create_graph();
 
-        /*Find the indegree of each vertex*/
+        /
         for(i=0;i<n;i++)
         {
                 indeg[i] = indegree(i);
@@ -33,8 +33,7 @@ int main()
         while(  !isEmpty_queue( ) && count < n )
         {
                 v = delete_queue();
-        topo_order[++count] = v; /*Add vertex v to topo_order array*/
-                /*Delete all edges going fron vertex v */
+        topo_order[++count] = v; /
                 for(i=0; i<n; i++)
                 {
                         if(adj[v][i] == 1)
@@ -66,12 +65,12 @@ void insert_queue(int vertex)
                 printf("\nQueue Overflow\n");
         else
         {
-                if (front == -1)  /*If queue is initially empty */
+                if (front == -1)  
                         front = 0;
                 rear = rear+1;
                 queue[rear] = vertex ;
         }
-}/*End of insert_queue()*/
+}
 
 int isEmpty_queue()
 {
@@ -79,7 +78,7 @@ int isEmpty_queue()
                 return 1;
         else
                 return 0;
-}/*End of isEmpty_queue()*/
+}
 
 int delete_queue()
 {
@@ -95,7 +94,7 @@ int delete_queue()
                 front = front+1;
                 return del_item;
         }
-}/*End of delete_queue() */
+}
 
 int indegree(int v)
 {
@@ -104,7 +103,7 @@ int indegree(int v)
                 if(adj[i][v] == 1)
                         in_deg++;
         return in_deg;
-}/*End of indegree() */
+}
 
 void create_graph()
 {
